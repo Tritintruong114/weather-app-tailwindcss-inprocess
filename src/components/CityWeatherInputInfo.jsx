@@ -9,17 +9,17 @@ import React from "react";
 function CityWeatherInputInfo() {
   return (
     <div className="absolute left-0 top-0  shadow-xl shadow-gray-700 w-1/4 rounded-2xl mt-3 mx-6 my-6 flex flex-col justify-center items-center bg-gradient-to-br from-gray-100  to-gray-100">
-      <h1 className="text-black font-light mt-3">
+      {/* <h1 className="text-black font-light mt-3">
         This is a Weather App - By Bruno Truong
-      </h1>
+      </h1> */}
 
-      <div className="flex flex-row space-x-3 py-3">
-        <UilSearch className="text-black hover:scale-120" />
+      <div className="flex flex-row space-x-3 py-3 mt-6">
+        <UilSearch className="transition ease-out hover:scale-125 text-black hover:scale-120" />
         <input
           className="text-black w-full rounded-lg outline-none "
           placeholder="Search city name ..."
         ></input>
-        <UilLocationPoint className="text-black" />
+        <UilLocationPoint className="transition ease-out hover:scale-125 text-black" />
       </div>
 
       <div className="flex flex-col justify-center items-center">
