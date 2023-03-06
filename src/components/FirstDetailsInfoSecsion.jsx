@@ -2,8 +2,10 @@ import React from "react";
 
 function FirstDetailsInfoSecsion() {
   return (
-    <div>
-      <div className="absolute  right-0 top-0 shadow-xl shadow-gray-700 w-4/6 rounded-2xl mt-3 mr-20 mx-6 my-6 pt-6 space-x-3 flex flex-row justify-between items-center bg-gradient-to-br from-gray-100  to-gray-100">
+    <div className="  w-full h-screen relative ">
+      
+
+      <div className="absolute  right-0 top-0 bg-white w-4/6 rounded-t-3xl mt-3 mr-20 mx-6 my-6 pt-6 space-x-3 flex flex-row justify-between items-center">
         <div className="flex space-x-3 pb-6 pl-9 ">
           <button className=" text-md transition ease-out hover:scale-125">
             Today
@@ -32,6 +34,7 @@ function FirstDetailsInfoSecsion() {
         </div>
       </div>
     </div>
+    
   );
 }
 
