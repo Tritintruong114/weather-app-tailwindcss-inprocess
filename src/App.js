@@ -6,7 +6,7 @@ import FirstDetailsInfoSecsion from "./components/FirstDetailsInfoSecsion";
 
 function App() {
   return (
-    <div className="relative flex flex-col items-center justify-center w-full h-screen py-6 bg-gradient-to-r to-blue-200  from-cyan-400 ">
+    <div className="relative flex items-center justify-center w-full h-screen bg-gradient-to-r to-blue-200  from-cyan-400 ">
       <CityWeatherInputInfo />
       <FirstDetailsInfoSecsion />
     </div>
