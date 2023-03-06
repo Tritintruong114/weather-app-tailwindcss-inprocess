@@ -44,6 +44,7 @@ function CityWeatherInputInfo() {
       </div>
 
       <div className="mb-32 pt-10 transition ease-out hover:scale-125">
+        
         <div className=" flex w-80 relative justify-center items-center">
           <img
             className="rounded-xl opacity-60 "
@@ -54,6 +55,7 @@ function CityWeatherInputInfo() {
             Paris, FR
           </h1>
         </div>
+
       </div>
     </div>
   );
