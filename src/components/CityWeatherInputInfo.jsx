@@ -6,7 +6,7 @@ import {
 } from "@iconscout/react-unicons";
 import React from "react";
 
-function Input() {
+function CityWeatherInputInfo() {
   return (
     <div className="shadow-xl shadow-gray-700 w-1/4 rounded-2xl mx-3 px-6 flex flex-col justify-center items-center bg-gradient-to-br from-gray-100  to-gray-100">
       <h1 className="text-black font-light">
@@ -16,7 +16,7 @@ function Input() {
       <div className="flex flex-row space-x-3 py-3">
         <UilSearch className="text-black hover:scale-120" />
         <input
-          className="text-black w-full rounded-lg outline-none	"
+          className="text-black w-full rounded-lg outline-none "
           placeholder="Search city name ..."
         ></input>
         <UilLocationPoint className="text-black" />
@@ -59,4 +59,4 @@ function Input() {
   );
 }
 
-export default Input;
+export default CityWeatherInputInfo;
