@@ -9,9 +9,10 @@ import DetailsOfWeather from "./components/DetailsOfWeather";
 function App() {
   return (
     <div className="relative flex flex-col items-center justify-center w-full h-screen bg-gradient-to-r to-blue-200  from-cyan-400 ">
+      <DailyInfo />
       <FirstDetailsInfoSecsion />
       <CityWeatherInputInfo />
-      <DailyInfo />
+
       <DetailsOfWeather />
     </div>
   );
