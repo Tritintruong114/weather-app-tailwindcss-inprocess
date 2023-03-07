@@ -1,4 +1,5 @@
 import React from "react";
+// import DetailsOfWeather from "./DetailsOfWeather";
 
 function DailyInfo() {
   const dailyInfo = [
@@ -48,9 +49,9 @@ function DailyInfo() {
 
   return (
     <div>
-      <div className=" right-0 top-20 absolute w-4/6 mt-3 mr-10  bg-white mr-10 px-6 mx-6 my-6 pt-6 space-x-6 flex flex-row justify-center items-center ">
+      <div className=" bg-white h-1/5 space-x-6 flex flex-row justify-center items-center px-3 py-3">
         {dailyInfo.map((daily) => (
-          <div className="w-1/4 py-2 mb-3 bg-gradient-to-tr from-gray-100  to-gray-200 rounded-3xl flex flex-col items-center justify-center pr  ">
+          <div className="md:flex w-1/4 py-2 mb-3 bg-gradient-to-tr from-gray-100  to-gray-200 rounded-3xl flex flex-col items-center justify-center pr  ">
             <h1 className="font-light ">{daily.day}</h1>
             <img
               className="w-3/4"
@@ -64,6 +65,7 @@ function DailyInfo() {
             </div>
           </div>
         ))}
+        {/* <div><DetailsOfWeather /></div> */}
       </div>
     </div>
   );
