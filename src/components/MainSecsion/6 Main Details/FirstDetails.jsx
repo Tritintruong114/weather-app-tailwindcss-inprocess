@@ -3,7 +3,7 @@ import React from "react";
 // import { UilWind } from "@iconscout/react-unicons";
 function FirstDetails() {
   return (
-    <div className="md:flex relative flex md:flex items-center justify-between flex-row right-0  ">
+    <div className="md:flex relative flex md:flex items-center justify-between flex-row right-0   ">
       <div className="flex flex-col items-center justify-center">
         <h1 className="font-bold absolute top-0">UV Index</h1>
         <img

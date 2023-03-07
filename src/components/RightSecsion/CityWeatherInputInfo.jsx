@@ -7,8 +7,11 @@ import {
 import React from "react";
 
 function CityWeatherInputInfo() {
+
+
+  
   return (
-    <div className="md:flex absolute pb-1 left-3  top-3 h-fit shadow-xl shadow-gray-700   w-1/5   rounded-3xl   flex flex-col justify-around items-center bg-gradient-to-tr from-gray-100  to-orange-200">
+    <div className="md:flex absolute pb-0 left-3  top-3 h-fit shadow-xl shadow-gray-700   w-1/5   rounded-3xl   flex flex-col justify-around items-center bg-white">
       {/* <h1 className="text-black font-light mt-3">
         This is a Weather App - By Bruno Truong
       </h1> */}
