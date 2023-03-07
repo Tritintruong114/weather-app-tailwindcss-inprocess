@@ -12,7 +12,7 @@ function App() {
       <FirstDetailsInfoSecsion />
       <CityWeatherInputInfo />
       <DailyInfo />
-      <DetailsOfWeather/>
+      <DetailsOfWeather />
     </div>
   );
 }

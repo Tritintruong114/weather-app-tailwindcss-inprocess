@@ -8,7 +8,7 @@ import React from "react";
 
 function CityWeatherInputInfo() {
   return (
-    <div className="absolute left-0 top-0 py-3 my-3 mx-16   shadow-xl shadow-gray-700 w-1/4 rounded-3xl   flex flex-col justify-around items-center bg-gradient-to-tr from-gray-100  to-gray-200">
+    <div className="absolute left-0 top-0 py-3 my-3 mx-16    shadow-xl shadow-gray-700 w-1/4   rounded-3xl   flex flex-col justify-around items-center bg-gradient-to-tr from-gray-100  to-gray-200">
       {/* <h1 className="text-black font-light mt-3">
         This is a Weather App - By Bruno Truong
       </h1> */}
@@ -24,7 +24,7 @@ function CityWeatherInputInfo() {
 
       <div className="flex flex-col justify-center items-center">
         <img
-          className="w-60"
+          className="w-40"
           src="https://static.vecteezy.com/system/resources/previews/010/892/336/non_2x/sun-transparent-background-free-png.png"
           alt=""
         ></img>
@@ -43,19 +43,17 @@ function CityWeatherInputInfo() {
         </div>
       </div>
 
-      <div className="mb-32 pt-10 transition ease-out hover:scale-125">
-        
-        <div className=" flex w-80 relative justify-center items-center">
+      <div className="flex items-center justify-center pt-10 transition ease-out hover:scale-125">
+        <div className="pb-3 flex w-7/12 relative justify-center items-center">
           <img
-            className="rounded-xl opacity-60 "
+            className="rounded-xl opacity-100 "
             src="https://images.adsttc.com/media/images/5d44/14fa/284d/d1fd/3a00/003d/large_jpg/eiffel-tower-in-paris-151-medium.jpg?1564742900"
             alt="#"
           ></img>
-          <h1 className="absolute text-gray-600 font-bold text-4xl  rounded-lg">
+          <h1 className="absolute text-gray-100 backdrop-blur-sm font-bold text-4xl  rounded-lg">
             Paris, FR
           </h1>
         </div>
-
       </div>
     </div>
   );
