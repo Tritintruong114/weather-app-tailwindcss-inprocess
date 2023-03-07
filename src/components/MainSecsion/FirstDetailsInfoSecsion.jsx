@@ -8,7 +8,7 @@ function FirstDetailsInfoSecsion() {
 
   return (
     // <div className="">
-    <div className="md:flex h-screen  flex flex-col absolute   w-4/5 right-3 pt-3 top-0 pl-9  ">
+    <div className="md:flex h-full rounded-2xl py-6   flex flex-col absolute    w-4/5 right-3 pt-3 top-0 pl-9  ">
       <div className=" bg-white   relative top-0 pt-3 rounded-t-3xl w-full h-1/8  space-x-3 flex flex-row justify-between items-center">
         <div className="flex space-x-3 pb-6 pl-9  ">
           <button
