@@ -49,7 +49,7 @@ function DailyInfo() {
 
   return (
     <div>
-      <div className=" bg-white h-1/5 space-x-6 flex flex-row justify-center items-center px-3 py-3">
+      <div className=" bg-white h-1/5 space-x-6 flex flex-row justify-center items-center px-9 top-0 relative">
         {dailyInfo.map((daily) => (
           <div className="md:flex w-1/4 py-2 mb-3 bg-gradient-to-tr from-gray-100  to-gray-200 rounded-3xl flex flex-col items-center justify-center pr  ">
             <h1 className="font-light ">{daily.day}</h1>
