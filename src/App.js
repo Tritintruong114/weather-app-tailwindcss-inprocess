@@ -10,7 +10,7 @@ const getWeatherData = async (searchParams) => {
   return weatherData;
 };
 
-getWeatherData("hanoi");
+getWeatherData("NhaTrang");
 
 function App() {
   const [input, setInput] = useState(""); // this for city input name
