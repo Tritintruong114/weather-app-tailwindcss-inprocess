@@ -4,22 +4,39 @@ import {
   UilClouds,
   UilRaindrops,
 } from "@iconscout/react-unicons";
-import React from "react";
+import React, { useState } from "react";
+import getDoneWeatherData from "../weatherServices/services";
 
-const CityWeatherInputInfo = (searchCity, handleSearchCity) => {
-
-
-
+const CityWeatherInputInfo = ( ) => {
 
 
+  const [input, setInput] = useState("")
+  const [searchCity, setSearchCity] = useState("")
+  const [info, setInfo] = useState("")
+  const handleInputCity = (e) => {
+    e.preventDefault();
+    setSearchCity(() => {
+      setInput(searchCity)
+    })
+
+  }
+
+  const getWeatherData = async (searchParams) => {
+    await getDoneWeatherData(searchParams);
+  };
   
+  getWeatherData(input);
+
+
   return (
+
+    <div>
     <div className="md:flex absolute    h-fit   w-1/5   rounded-3xl   flex flex-col justify-around items-center bg-white">
       <div className="md:flex pt-3 flex flex-row w-3/4 space-x-3    justify-center items-center">
-        <UilSearch onClick={handleSearchCity} className="md:flex transition mt-2 ease-out hover:scale-125 text-black hover:scale-120" />
+        <UilSearch onClick={handleInputCity} className="md:flex transition mt-2 ease-out hover:scale-125 text-black hover:scale-120" />
         <input
           value={searchCity}
-          // onChange={}
+          onChange={(e)=>setSearchCity(e.target.value)}
           className=" md:flex text-black w-full rounded-md py-1 mt-2 outline-none  "
           placeholder="Search city name ..."
         ></input>
@@ -37,7 +54,10 @@ const CityWeatherInputInfo = (searchCity, handleSearchCity) => {
           16°C
         </h1>
         <h1 className="md:flex font-light text-black my-3  text-lg">
-          Monday, 3:45 PM
+          Temp max: 
+        </h1>
+        <h1 className="md:flex font-light text-black my-3  text-lg">
+          Temp min:
         </h1>
         <div className="py-6">
           <div className="flex flex-row space-x-2">
@@ -63,7 +83,8 @@ const CityWeatherInputInfo = (searchCity, handleSearchCity) => {
           </h1>
         </div>
       </div>
-    </div>
+      </div>
+      </div>
   );
 }
 
