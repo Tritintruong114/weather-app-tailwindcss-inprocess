@@ -18,13 +18,8 @@ function App() {
   const [weather, setWeather] = useState(null);
 
   return (
-    <div className="relative flex flex-row  items-center justify-center h-screen bg-gradient-to-r to-blue-200  from-cyan-600   ">
-      <div>
-        <FirstDetailsInfoSecsion />
-      </div>
-      <div>
+    <div className="relative flex items-center justify-center h-screen bg-gradient-to-r to-blue-200  from-cyan-600   ">
         <CityWeatherInputInfo />
-      </div>
     </div>
   );
 }
