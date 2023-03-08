@@ -1,5 +1,5 @@
 import React from "react";
-import FirstDetails from "./6 Main Details/FirstDetails";
+import FirstDetails from "./FirstDetails";
 
 function DetailsOfWeather() {
   return (

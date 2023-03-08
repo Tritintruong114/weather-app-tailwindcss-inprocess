@@ -1,18 +1,17 @@
+import { DateTime } from "luxon";
 const API_KEY = "fe56017491bae986aa66dcda1a982ef0";
+// import DateTime from './../../../node_modules/luxon/src/datetime';
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 const getWeatherData = async (infoType, searchParams) => {
-  const url = new URL(BASE_URL + "/" + infoType + "?q=" + searchParams);
-  url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
-
+  const url = new URL(
+    BASE_URL + "/" + infoType + "?q=" + searchParams + "&appid=" + API_KEY
+  );
   const getData = await fetch(url);
   const saveData = await getData.json();
-  console.log(saveData);
-
-  // console.log(url);
+  return saveData;
 };
 
-// export default getWeatherData;
 const formatCurrentWeather = (data) => {
   console.log(data);
   const {
@@ -47,8 +46,43 @@ const formatCurrentWeather = (data) => {
   };
 };
 
-const getDoneWeatherData = async (searchParams) => {
-  await getWeatherData("weather", searchParams).then(formatCurrentWeather);
+const doneForecastWeatherFormat = (data) => {
+  let { timezone, daily, hourly } = data;
+  daily = daily.slice(1, 6).map((d) => {
+    return {
+      title: getLocalTime(d.dt, timezone, "hh:mm a"),
+      temp: d.temp,
+      icon: d.weather[0].icon,
+    };
+  });
+
+  return { timezone, daily, hourly };
 };
 
+const getDoneWeatherData = async (searchParams) => {
+  const formatedCurrentWeather = await getWeatherData(
+    "weather",
+    searchParams
+  ).then(formatCurrentWeather);
+  // console.log(formatedCurrentWeather);
+
+  const { lat, lon } = formatedCurrentWeather;
+  const getForecastWeather = await getWeatherData("onecall", {
+    lat,
+    lon,
+    exclude: "current,minutely,alerts",
+    units: searchParams.units,
+  });
+
+  const doneForecastWeatherFormat = await getForecastWeather.json();
+  console.log(doneForecastWeatherFormat);
+
+  return formatedCurrentWeather;
+};
+
+const getLocalTime = (
+  second,
+  zone,
+  format = "cccc, dd LLL yyyy' | Local time : 'hh:mm a"
+) => DateTime.fromSeconds(second).setZone(zone).toFormat(format);
 export default getDoneWeatherData;
