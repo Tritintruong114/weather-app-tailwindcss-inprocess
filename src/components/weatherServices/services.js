@@ -5,7 +5,14 @@ const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 const getWeatherData = async (infoType, searchParams) => {
   const url = new URL(
-    BASE_URL + "/" + infoType + "?q=" + searchParams + "&appid=" + API_KEY
+    BASE_URL +
+      "/" +
+      infoType +
+      "?q=" +
+      searchParams +
+      "&units=metric" +
+      "&appid=" +
+      API_KEY
   );
   const getData = await fetch(url);
   const saveData = await getData.json();
@@ -46,27 +53,13 @@ const formatCurrentWeather = (data) => {
   };
 };
 
-const doneForecastWeatherFormat = (data) => {
-  let { timezone, daily, hourly } = data;
-  daily = daily.slice(1, 6).map();
-};
-
 const getDoneWeatherData = async (searchParams) => {
   const formatedCurrentWeather = await getWeatherData(
     "weather",
     searchParams
   ).then(formatCurrentWeather);
 
-  const { lat, lon } = formatedCurrentWeather;
-  const getForecastWeather = await getWeatherData("onecall", {
-    lat,
-    lon,
-    exclude: "current,minutely,alerts",
-    units: searchParams.units,
-  });
-
-  const doneForecastWeatherFormat = await getForecastWeather.json();
-  console.log(doneForecastWeatherFormat);
-
-  return formatedCurrentWeather;
+  console.log(formatedCurrentWeather);
 };
+
+export default getDoneWeatherData;

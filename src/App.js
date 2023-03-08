@@ -7,10 +7,10 @@ import getDoneWeatherData from "./components/weatherServices/services";
 
 const getWeatherData = async (searchParams) => {
   const weatherData = await getDoneWeatherData(searchParams);
-  return weatherData;
+  console.log(weatherData);
 };
 
-getWeatherData("NhaTrang");
+getWeatherData("Ha noi");
 
 function App() {
   const [input, setInput] = useState(""); // this for city input name
@@ -19,12 +19,7 @@ function App() {
 
   return (
     <div className="relative flex flex-row  items-center justify-center h-screen bg-gradient-to-r to-blue-200  from-cyan-600   ">
-      <div>
-        <FirstDetailsInfoSecsion />
-      </div>
-      <div>
-        <CityWeatherInputInfo />
-      </div>
+      <CityWeatherInputInfo />
     </div>
   );
 }
