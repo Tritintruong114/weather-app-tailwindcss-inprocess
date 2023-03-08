@@ -13,12 +13,8 @@ const getWeatherData = async (searchParams) => {
 getWeatherData("Ha noi");
 
 function App() {
-  const [input, setInput] = useState(""); // this for city input name
-  const [units, setUnits] = useState("metric"); // this for Changing the unit of C degree and F degree
-  const [weather, setWeather] = useState(null);
-
   return (
-    <div className="relative flex flex-row  items-center justify-center h-screen bg-gradient-to-r to-blue-200  from-cyan-600   ">
+    <div className="relative flex  items-center justify-center h-screen bg-gradient-to-r to-blue-200  from-cyan-600   ">
       <CityWeatherInputInfo />
     </div>
   );

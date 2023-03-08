@@ -8,7 +8,7 @@ import React from "react";
 
 function CityWeatherInputInfo() {
   return (
-    <div className="md:flex absolute  h-fit   w-1/5   rounded-3xl   flex flex-col justify-around items-center bg-white">
+    <div className="md:flex absolute    h-fit   w-1/5   rounded-3xl   flex flex-col justify-around items-center bg-white">
       <div className="md:flex pt-3 flex flex-row w-3/4 space-x-3    justify-center items-center">
         <UilSearch className="md:flex transition mt-2 ease-out hover:scale-125 text-black hover:scale-120" />
         <input
@@ -24,7 +24,7 @@ function CityWeatherInputInfo() {
           src="https://static.vecteezy.com/system/resources/previews/010/892/336/non_2x/sun-transparent-background-free-png.png"
           alt=""
         ></img>
-        <h1 className="md:flex font-light text-3xl text-black mb-3  ">Sunny</h1>
+        <h1 className="md:flex font-light text-3xl text-black mb-3  ">ABC</h1>
         <h1 className="md:flex font-bold text-6xl text-orange-500 py-3 my-3">
           16°C
         </h1>
