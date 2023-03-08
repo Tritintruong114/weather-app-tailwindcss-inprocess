@@ -1,6 +1,5 @@
 import React from "react";
-// import
-// import { UilWind } from "@iconscout/react-unicons";
+
 function FirstDetails() {
   return (
     <div className="md:flex relative flex items-center justify-around flex-row right-0   ">

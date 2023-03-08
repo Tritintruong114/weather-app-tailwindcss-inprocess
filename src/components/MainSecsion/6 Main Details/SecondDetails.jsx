@@ -27,4 +27,4 @@ function SecondDetails() {
   );
 }
 
-export default SecondDetails;
+// export default SecondDetails;

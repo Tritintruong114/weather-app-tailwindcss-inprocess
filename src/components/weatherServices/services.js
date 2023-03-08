@@ -2,14 +2,17 @@ const API_KEY = "fe56017491bae986aa66dcda1a982ef0";
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 const getWeatherData = async (infoType, searchParams) => {
-  const url = new URL(
-    BASE_URL + "/" + infoType + "?q=" + searchParams + "&appid=" + API_KEY
-  );
+  const url = new URL(BASE_URL + "/" + infoType + "?q=" + searchParams);
+  url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
+
   const getData = await fetch(url);
   const saveData = await getData.json();
-  return saveData;
+  console.log(saveData);
+
+  // console.log(url);
 };
 
+// export default getWeatherData;
 const formatCurrentWeather = (data) => {
   console.log(data);
   const {
@@ -44,11 +47,8 @@ const formatCurrentWeather = (data) => {
   };
 };
 
-const getFormatedWeatherData = async (searchParams) => {
-  const formatedCurrentWeather = await getWeatherData(
-    "weather",
-    searchParams
-  ).then(formatCurrentWeather);
-  console.log(formatedCurrentWeather);
+const getDoneWeatherData = async (searchParams) => {
+  await getWeatherData("weather", searchParams).then(formatCurrentWeather);
 };
-export default getFormatedWeatherData;
+
+export default getDoneWeatherData;
