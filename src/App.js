@@ -7,7 +7,7 @@ import getDoneWeatherData from "./components/weatherServices/services";
 
 function App() {
   return (
-    <div className="relative flex  items-center justify-center h-screen bg-gradient-to-r to-blue-200  from-cyan-600   ">
+    <div className="relative flex  items-center justify-center h-screen bg-gradient-to-bl to-orange-500  from-cyan-400   ">
       {/* <h1>This simple App making by Bruno Truong</h1> */}
       <CityWeatherInputInfo />
     </div>

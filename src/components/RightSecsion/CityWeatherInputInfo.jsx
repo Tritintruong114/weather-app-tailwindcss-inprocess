@@ -92,11 +92,11 @@ function CityWeatherInputInfo() {
       if (getData) {
         setWeatherInfo(
           <div>
-            <div className="md:flex flex flex-col justify-center items-center">
-              <h1 className="md:flex flex flex-row items-center justify-center font-bold text-3xl text-black   ">
+            <div className="md:flex flex flex-col space-y-3 justify-center items-center">
+              <h1 className="md:flex flex flex-row ic font-bold text-3xl text-black   ">
                 {getData.name}
                 <h1 className="md:flex font-light text-black  text-lg">
-                  /{getData.country}
+                  {getData.country}
                 </h1>
               </h1>
 
@@ -105,7 +105,7 @@ function CityWeatherInputInfo() {
                 {getData.temp}°c
               </h1>
 
-              <div className="md:flex flex flex-col space-y-1 justify-center items-center py-6">
+              <div className="md:flex flex flex-col space-y-3 justify-center items-start py-6">
                 <div className=" md:flex  flex flex-row space-x-2">
                   <UilTemperatureThreeQuarter
                     size={24}

@@ -20,7 +20,7 @@ const getWeatherData = async (infoType, searchParams) => {
 };
 
 const formatCurrentWeather = (data) => {
-  console.log(data);
+  // console.log(data);
   const {
     coord: { lat, lon },
     main: { temp, feels_like, temp_min, temp_max, humidity },
@@ -59,8 +59,8 @@ const getDoneWeatherData = async (searchParams) => {
     searchParams
   ).then(formatCurrentWeather);
 
-  console.log(formatedCurrentWeather);
-  console.log(formatedCurrentWeather.name);
+  return formatedCurrentWeather;
+  // console.log(formatedCurrentWeather.name);
 };
 
 export default getDoneWeatherData;
