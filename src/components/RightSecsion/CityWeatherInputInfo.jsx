@@ -1,17 +1,17 @@
 import {
   UilSearch,
   UilLocationPoint,
-  UilClouds,
-  UilRaindrops,
+  // UilClouds,
+  // UilRaindrops,
   UilWind,
-  uilFeelsLike,
+  // uilFeelsLike,
   UilTemperatureThreeQuarter,
   UilTemperatureEmpty,
   UilThermometer,
 } from "@iconscout/react-unicons";
 import React from "react";
 import { useState, useEffect } from "react";
-import getDoneWeatherData from "../weatherServices/services";
+// import getDoneWeatherData from "../weatherServices/services";
 
 function CityWeatherInputInfo() {
   const API_KEY = "fe56017491bae986aa66dcda1a982ef0";
