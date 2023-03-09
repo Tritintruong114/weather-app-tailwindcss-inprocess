@@ -3,58 +3,184 @@ import {
   UilLocationPoint,
   UilClouds,
   UilRaindrops,
+  UilWind,
+  uilFeelsLike,
+  UilTemperatureThreeQuarter,
+  UilTemperatureEmpty,
+  UilThermometer,
 } from "@iconscout/react-unicons";
 import React from "react";
+import { useState, useEffect } from "react";
+import getDoneWeatherData from "../weatherServices/services";
 
 function CityWeatherInputInfo() {
+  const API_KEY = "fe56017491bae986aa66dcda1a982ef0";
+  // import DateTime from './../../../node_modules/luxon/src/datetime';
+  const BASE_URL = "https://api.openweathermap.org/data/2.5";
+  // import { DateTime } from "luxon";
+
+  const getWeatherData = async (infoType, searchParams) => {
+    const url = new URL(
+      BASE_URL +
+        "/" +
+        infoType +
+        "?q=" +
+        searchParams +
+        "&units=metric" +
+        "&appid=" +
+        API_KEY
+    );
+    const getData = await fetch(url);
+    const saveData = await getData.json();
+    return saveData;
+  };
+
+  const formatCurrentWeather = (data) => {
+    // console.log(data);
+    const {
+      coord: { lat, lon },
+      main: { temp, feels_like, temp_min, temp_max, humidity },
+      name,
+      dt,
+      sys: { country, sunrise, sunset },
+      weather,
+
+      wind: { speed },
+    } = data;
+
+    const { main: details, icon } = weather[0];
+
+    return {
+      lat,
+      lon,
+      temp,
+      feels_like,
+      temp_min,
+      temp_max,
+      humidity,
+      name,
+      dt,
+      country,
+      sunrise,
+      sunset,
+      speed,
+      details,
+      icon,
+    };
+  };
+
+  const getDoneWeatherData = async (searchParams) => {
+    const formatedCurrentWeather = await getWeatherData(
+      "weather",
+      searchParams
+    ).then(formatCurrentWeather);
+
+    return formatedCurrentWeather;
+  };
+  const [input, setInput] = useState("");
+  const [search, setSearch] = useState("");
+  const [weatherInfo, setWeatherInfo] = useState("");
+
+  useEffect(() => {
+    const getDataFormCity = async () => {
+      if (input) {
+      } else {
+        console.log("no input");
+      }
+      const getData = await getDoneWeatherData(`${search}`);
+      console.log(getData);
+      if (getData) {
+        setWeatherInfo(
+          <div>
+            <div className="md:flex flex flex-col justify-center items-center">
+              <h1 className="md:flex flex flex-row items-center justify-center font-bold text-3xl text-black   ">
+                {getData.name}
+                <h1 className="md:flex font-light text-black  text-lg">
+                  /{getData.country}
+                </h1>
+              </h1>
+
+              <p className="font-light text-xl">{getData.details}</p>
+              <h1 className="md:flex font-bold text-3xl text-orange-500 py-3 my-3">
+                {getData.temp}°c
+              </h1>
+
+              <div className="md:flex flex flex-col space-y-1 justify-center items-center py-6">
+                <div className=" md:flex  flex flex-row space-x-2">
+                  <UilTemperatureThreeQuarter
+                    size={24}
+                    className="md:flex  text-black"
+                  />
+                  <p className=" md:flex  font-light text-md text-black">
+                    Temp_max : {getData.temp_max}
+                  </p>
+                </div>
+                <div className=" md:flex flex flex-row space-x-2">
+                  <UilTemperatureEmpty
+                    size={24}
+                    className="md:flex text-black"
+                  />
+                  <p className="font-light text-md md:flex  text-black">
+                    Temp_min: {getData.temp_min}
+                  </p>
+                </div>
+
+                <div className=" md:flex flex flex-row space-x-2">
+                  <UilThermometer size={24} className="md:flex text-black" />
+                  <p className="font-light text-md md:flex  text-black">
+                    Feels like: {getData.feels_like}
+                  </p>
+                </div>
+
+                <div className=" md:flex flex flex-row space-x-2">
+                  <UilWind size={24} className="md:flex text-black" />
+                  <p className="font-light text-md md:flex  text-black">
+                    Wind: {getData.speed} Km/h
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      } else {
+        console.log("abc");
+      }
+    };
+    getDataFormCity();
+  }, [search]);
+
+  const handleSearchButton = (e) => {
+    e.preventDefault();
+    setSearch(input);
+    setInput("");
+  };
+
+  const handleLocationButton = (e) => {
+    e.preventDefault();
+    setSearch("Ho Chi Minh");
+    setInput("");
+  };
+  // getDoneWeatherData("Ho chi minh");
+
   return (
-    <div className="md:flex absolute    h-fit   w-1/5   rounded-3xl   flex flex-col justify-around items-center bg-white">
-      <div className="md:flex pt-3 flex flex-row w-3/4 space-x-3    justify-center items-center">
-        <UilSearch className="md:flex transition mt-2 ease-out hover:scale-125 text-black hover:scale-120" />
+    <div className="md:flex absolute  px-6    h-fit py-3  w-1/4   rounded-3xl   flex flex-col justify-around items-center bg-white">
+      <div className="md:flex py-3   flex flex-row w-full space-x-3    justify-center items-center">
+        <UilSearch
+          onClick={handleSearchButton}
+          className="md:flex transition  ease-out hover:scale-125 text-black hover:scale-120"
+        />
         <input
-          className=" md:flex text-black w-full rounded-md py-1 mt-2 outline-none  "
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          className=" md:flex text-black w-full justify-center items-center rounded-md   outline-none capitalize  "
           placeholder="Search city name ..."
         ></input>
-        <UilLocationPoint className="md:flex transition mt-2 ease-out hover:scale-125 text-black" />
+        <UilLocationPoint
+          onClick={handleLocationButton}
+          className="md:flex transition ease-out hover:scale-125 text-black"
+        />
       </div>
-
-      <div className="md:flex flex flex-col justify-center items-center">
-        <img
-          className="md:flex w-40"
-          src="https://static.vecteezy.com/system/resources/previews/010/892/336/non_2x/sun-transparent-background-free-png.png"
-          alt=""
-        ></img>
-        <h1 className="md:flex font-light text-3xl text-black mb-3  ">ABC</h1>
-        <h1 className="md:flex font-bold text-6xl text-orange-500 py-3 my-3">
-          16°C
-        </h1>
-        <h1 className="md:flex font-light text-black my-3  text-lg">
-          Monday, 3:45 PM
-        </h1>
-        <div className="py-6">
-          <div className="flex flex-row space-x-2">
-            <UilClouds size={24} className="text-black" />
-            <p className="font-light text-sm text-black">Mostly Cloudy</p>
-          </div>
-          <div className="flex flex-row space-x-2">
-            <UilRaindrops size={24} className="text-black" />
-            <p className="font-light text-sm text-black">Rain: 30%</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex items-center justify-center pt-9">
-        <div className="py-6 flex w-7/12 relative justify-center items-center">
-          <img
-            className="rounded-xl  opacity-100 "
-            src="https://images.adsttc.com/media/images/5d44/14fa/284d/d1fd/3a00/003d/large_jpg/eiffel-tower-in-paris-151-medium.jpg?1564742900"
-            alt="#"
-          ></img>
-          <h1 className="absolute text-gray-100 backdrop-blur-sm w-5/8 font-bold   rounded-lg">
-            Paris, FR
-          </h1>
-        </div>
-      </div>
+      {weatherInfo}
     </div>
   );
 }

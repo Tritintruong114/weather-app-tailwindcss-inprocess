@@ -16,7 +16,7 @@ const getWeatherData = async (infoType, searchParams) => {
   );
   const getData = await fetch(url);
   const saveData = await getData.json();
-  return saveData;
+  console.log(saveData);
 };
 
 const formatCurrentWeather = (data) => {
@@ -60,6 +60,7 @@ const getDoneWeatherData = async (searchParams) => {
   ).then(formatCurrentWeather);
 
   console.log(formatedCurrentWeather);
+  console.log(formatedCurrentWeather.name);
 };
 
 export default getDoneWeatherData;
